@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root{
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --very-dark-blue: hsl(234, 12%, 34%);
+    --grayish-blue: hsl(229, 6%, 66%);
+    --very-light-gray: hsl(0, 0%, 98%);
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.94em;
+    background-color: var(--very-light-gray);
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.column .card:nth-of-type(1){
+    margin-bottom: 2vw;
+}
+
+.column .card{
+    width: 100%;
+}
+
+.column, .card{
+    flex-basis: min(370px, 30%);
+}
+
+.txt-dark-blue{
+    color: var(--very-dark-blue);
+}
+
+.txt-gray-blue{
+    color: var(--grayish-blue);
+}
+
+h1 span{
+    font-weight: 200;
+}
+
+main{
+    width: min(500px, 85%);
+    margin: 60px auto;
+    text-align: center;
+}
+
+.card{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(214, 213, 213);
+    padding: 25px;
+    overflow: hidden;
+    translate: 0 200px;
+    opacity: 0;
+    animation: fade-in 1s forwards;
+}
+
+.row > .card:nth-of-type(1){
+    border-top: 4px solid var(--cyan);
+    animation-delay: .6s;
+}
+
+.column .card:nth-of-type(1){
+    border-top: 4px solid var(--red);
+}
+
+.column .card:nth-of-type(2){
+    border-top: 4px solid var(--orange);
+    animation-delay: .4s;
+}
+
+.row > .card:nth-of-type(3){
+    border-top: 4px solid var(--blue);
+    animation-delay: .2s;
+}
+
+@keyframes fade-in {
+    to{
+        translate: 0 0;
+        opacity: 1;
+    }
+}
+
+.card > *{
+    margin: 0;
+}
+
+.card h2{
+    margin-bottom: 8px;
+    font-size: 1.3em;
+}
+
+.card img{
+    float: right;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 800px){
+    section{
+        padding: 0 5% 30px;
+    }
+
+    .row{
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .card, .column{
+        flex-basis: 370px;
+    }
+
+    .row > .card:nth-of-type(1){
+        animation-delay: 0s;
+    }
+    
+    .column .card:nth-of-type(1){
+        animation-delay: .2s;
+        margin-bottom: 30px;
+    }
+    
+    .column .card:nth-of-type(2){
+        animation-delay: .4s;
+    }
+    
+    .row > .card:nth-of-type(3){
+        animation-delay: .6s;
+    }
+}
